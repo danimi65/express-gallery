@@ -17,7 +17,7 @@ router.get('/', (req, res) =>{
   });
 });
 
-router.get('/gallery/:id', (req, res) =>{
+router.get('/:id', (req, res) =>{
   let photoId = req.params.id;
   Photo.findById(photoId)
   .then(photos =>{
@@ -26,7 +26,7 @@ router.get('/gallery/:id', (req, res) =>{
   .catch(err => {
     console.log('get individual err', err);
   });
-});
+}); 
 
 router.post('/', function (req, res) {
   console.log('hellow');
@@ -36,7 +36,7 @@ router.post('/', function (req, res) {
     description: req.body.description
 })
 .then((photos) =>{
-  res.redirect(303, '/gallery');
+  res.redirect(303, '/');
 })
 .catch(err => {
   console.log('post error', err);

@@ -6,7 +6,9 @@ const {User, Photo} = db;
 const bp = require('body-parser');
 const handlebars = require('express-handlebars');
 const gallery = require('./routes/gallery');
+const methodOverride = require('method-override');
 
+app.use(methodOverride('_method'));
 app.use(bp.urlencoded({extended: true}));
 app.use(express.static('public'));
 

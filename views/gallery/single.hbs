@@ -3,7 +3,14 @@
   <h1>Author: {{photoList.author}}</h1>
   <h2>Description: {{photoList.description}}</h2>
 
-  <a href="/gallery/{{photoList.id}}/edit">Edit</a>
-
+ {{!--  <a href="/gallery/{{photoList.id}}/edit">Edit</a> --}}
 
 </div>
+<form method="POST" action="/gallery/{{photoList.id}}?_method=DELETE">
+  <input type="submit" value ="delete">
+</form>
+
+<form method="GET" action="/gallery/{{photoList.id}}/edit">
+  <input type="submit" value="edit">
+</form>
+

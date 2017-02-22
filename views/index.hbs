@@ -1,10 +1,14 @@
-<h1>_ARCHITEKT</h1>
 
+
+<div id="mainContainer">
+  
 {{#each photoList}}
 <div class = "photoArea">
 <a href="/gallery/{{id}}"></a>
 <img src="{{link}}" class="photo">
-  <h2>Author: {{author}}</h2>
-  <h2>Description: {{description}}</h2>
+  <h2>Author: {{author}}</h2> 
+  <p>Description: {{description}}</p>
 </div>
 {{/each}}
+  
+</div>

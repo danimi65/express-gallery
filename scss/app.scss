@@ -1,3 +1,149 @@
+@import "./partials/reset";
+@import "./partials/clearfix";
+@import "./partials/general_styles";
+
+a {
+  color: #808080;
+  text-decoration: none;
+}
+
 body {
   background-color: white;
 }
+
+
+img{
+  margin: auto;
+  width: 80%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: red;
+
+// img:first-child{
+//   margin: auto;
+//   width: 100%;
+//   h1 {
+//     display: none;
+//   }
+//   p {
+//     display: none;
+//   }
+//   @include respond-to('large'){
+//     width: 100%;
+//   }
+
+// }
+}
+
+
+ .photo:nth-child(n+2){
+  flex: 0 1 auto;
+  width: 100%;
+  @include respond-to('large'){
+    width: 100%;
+  }
+}
+
+#mainContainer{
+  margin: auto;
+
+
+}
+
+
+
+.photoArea{
+width: 90%;
+flex-flow: row wrap;
+text-align:left;
+display: flex;
+justify-content: center;
+border-style: solid;
+border-width: 5px;
+border-color: green;
+  &img:first-child{
+  margin: auto;
+  width: 100%;
+  h1 {
+    display: none;
+  }
+  p {
+    display: none;
+  }
+  @include respond-to('large'){
+    width: 100%;
+    flex-flow: nowrap;
+  }
+
+}
+
+@include respond-to('large'){
+  width: 33%;
+  display: inline-block;
+}
+
+}
+
+header{
+  margin: 50px auto 0 auto;
+  font-family: "arial", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  height: relative;
+  border-top: dotted 1px  #c0c0c0;
+  @include respond-to('large'){
+
+  h1{
+    font-size: 40px;
+     font-weight: bold;
+     display: inline-block;
+    color: #808080;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "arial", sans-serif;
+
+  }
+
+  }
+
+}
+
+aside{
+  display: none;
+
+  @include respond-to('large'){
+  color:  #c0c0c0;
+  font-weight: lighter;
+  font-size: 12px;
+  display: inline-block;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 5px;
+    
+  }
+}
+
+// .title{
+//   font-size: 40px;
+//   font-weight: bold;
+//   text-align: center;
+//   color: #808080;
+//   padding-top: 20px;
+//   font-family: "arial", sans-serif;
+//    border-style: solid;
+//   border-width: 5px;
+//   border-color: yellow;
+
+
+//   @include respond-to('large'){
+//   padding-left: 200px;
+//   font-size: 50px;
+//   display: inline-block;
+//   height: 100%;
+//   width: relative;
+    
+//   }
+
+ 
+// }

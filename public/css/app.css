@@ -1,2 +1,144 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.clearfix {
+  display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
+
+/* close commented backslash hack */
+a {
+  color: #808080;
+  text-decoration: none; }
+
 body {
   background-color: white; }
+
+img {
+  margin: auto;
+  width: 80%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: red; }
+
+.photo:nth-child(n+2) {
+  flex: 0 1 auto;
+  width: 100%; }
+  @media (min-width: 800px) {
+    .photo:nth-child(n+2) {
+      width: 100%; } }
+
+#mainContainer {
+  margin: auto; }
+
+.photoArea {
+  width: 90%;
+  flex-flow: row wrap;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-width: 5px;
+  border-color: green; }
+  .photoAreaimg:first-child {
+    margin: auto;
+    width: 100%; }
+    .photoAreaimg:first-child h1 {
+      display: none; }
+    .photoAreaimg:first-child p {
+      display: none; }
+    @media (min-width: 800px) {
+      .photoAreaimg:first-child {
+        width: 100%;
+        flex-flow: nowrap; } }
+  @media (min-width: 800px) {
+    .photoArea {
+      width: 33%;
+      display: inline-block; } }
+
+header {
+  margin: 50px auto 0 auto;
+  font-family: "arial", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  height: relative;
+  border-top: dotted 1px  #c0c0c0; }
+  @media (min-width: 800px) {
+    header h1 {
+      font-size: 40px;
+      font-weight: bold;
+      display: inline-block;
+      color: #808080;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-family: "arial", sans-serif; } }
+
+aside {
+  display: none; }
+  @media (min-width: 800px) {
+    aside {
+      color: #c0c0c0;
+      font-weight: lighter;
+      font-size: 12px;
+      display: inline-block;
+      text-align: left;
+      padding-top: 20px;
+      padding-left: 5px; } }

@@ -21,6 +21,11 @@ router.get('/new', (req, res) =>{
   res.render('./gallery/new');
 });
 
+// router.get('/login', (req, res) =>{
+//   res.render('./login');
+
+// });
+
 router.get('/:id', (req, res) =>{
   let photoId = req.params.id;
   Photo.findById(photoId)
@@ -31,6 +36,16 @@ router.get('/:id', (req, res) =>{
     console.log('get individual err', err);
   });
 }); 
+
+
+// router.get('/secret', (req, res) => {
+
+// });
+
+
+// router.post('/login', (req,res) =>{
+
+// });
 
 
 router.post('/', function (req, res) {
@@ -117,6 +132,8 @@ router.delete('/:id', (req, res) => {
     res.redirect('/gallery');
   });
 });
+
+
 
 
 

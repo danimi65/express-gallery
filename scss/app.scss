@@ -15,9 +15,9 @@ body {
 img{
   margin: auto;
   width: 80%;
-  border-style: solid;
-  border-width: 5px;
-  border-color: red;
+  // border-style: solid;
+  // border-width: 5px;
+  // border-color: red;
 
 // img:first-child{
 //   margin: auto;
@@ -36,35 +36,25 @@ img{
 }
 
 
- .photo:nth-child(n+2){
-  flex: 0 1 auto;
-  width: 100%;
-  @include respond-to('large'){
-    width: 100%;
-  }
-}
 
 #mainContainer{
   margin: auto;
+  justify-content: center;
 
-
+ .photoArea:nth-child(n+2){
+  // flex: 0 1 auto;
+  width: 100%;
+  @include respond-to('large'){
+     width: 33%;
+  display: inline-block;
+  }
 }
-
-
-
-.photoArea{
-width: 90%;
-flex-flow: row wrap;
-text-align:left;
-display: flex;
-justify-content: center;
-border-style: solid;
-border-width: 5px;
-border-color: green;
-  &img:first-child{
+  .photoArea:first-child{
   margin: auto;
   width: 100%;
-  h1 {
+  padding-left: 130px;
+  padding-bottom: 20px;
+  h2 {
     display: none;
   }
   p {
@@ -75,12 +65,27 @@ border-color: green;
     flex-flow: nowrap;
   }
 
+// .photoArea{
+// width: 90%;
+// flex-flow: row wrap;
+// text-align:left;
+// display: flex;
+// justify-content: center;
+// border-style: solid;
+// border-width: 5px;
+// border-color: green;
+
+// }
+
 }
 
-@include respond-to('large'){
-  width: 33%;
-  display: inline-block;
-}
+
+
+
+// @include respond-to('large'){
+//   width: 33%;
+//   display: inline-block;
+// }
 
 }
 

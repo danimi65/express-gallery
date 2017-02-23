@@ -4,11 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     link: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
-    classMethods: {
-      associate: function(models) {
-        Photo.belongsTo(models.User);
-      }
-    }
+    // classMethods: {
+    //   associate: function(models) {
+    //     Photo.belongsTo(models.User);
+    //   }
+    // }
   });
 
   return Photo;

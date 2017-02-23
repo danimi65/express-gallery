@@ -161,25 +161,47 @@ header{
 
 .single-main-container{
   display: flex;
+  flex-flow: row wrap;
 
-
+.all-single-photos{
+  width: 49%;
+  @include respond-to('large'){
+    flex-flow: row wrap;
+    display: inline-block;
+  }
+}
 
 .singlePhoto{
-   padding: 1rem 7rem 3rem 7rem;
+  width: 100%;
+   // padding: 1rem 7rem 2rem 7rem;
+//    border-style: solid;
+// border-width: 5px;
+// border-color: green;
+@include respond-to('large'){
+  
+    padding-left: 1rem;
+
+  // padding: 1rem;
+}
 
 }
 
 .single-photoArea{
+//   border-style: solid;
+// border-width: 5px;
+// border-color: blue;
+  width: 49%;
    img{
     height: 15rem;
-    width: 20rem;
+    width: 100%;
+
    }
   display: none;
   padding: 1rem 7rem 2rem 7rem;
   @include respond-to('large'){
-    
+
     flex-flow: row wrap;
-    padding: 1rem 7rem 2rem 7rem;
+    // padding: 1rem 7rem 2rem 7rem;
     display: inline-block;
   }
 }

@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const {User, Photo} = db;
+const Photo= db.Photo;
 
 
 router.get('/', (req, res) =>{
@@ -29,11 +29,18 @@ router.get('/new', (req, res) =>{
 router.get('/:id', (req, res) =>{
   let photoId = req.params.id;
   Photo.findById(photoId)
-  .then((photos) =>{
-    res.render('./gallery/single', {photoList: photos});
+  .then((photo) =>{
+  Photo.findAll({order: "id"})
+  .then((photos) => {
+    
+    res.render('./gallery/single', {
+      photo: photo,
+      photos: photos
+    });
   })
   .catch(err => {
     console.log('get individual err', err);
+  });
   });
 }); 
 
@@ -56,7 +63,7 @@ router.post('/', function (req, res) {
     description: req.body.description
 })
 .then((photos) =>{
-  res.redirect(303, '/');
+  res.redirect(303, '/gallery');
 })
 .catch(err => {
   console.log('post error', err);

@@ -2,15 +2,18 @@
 const express = require('express');
 const app = express();
 const db = require('./models');
-const {User, Photo} = db;
+const Photo = db.Photo;
+const User = db.User;
 const bp = require('body-parser');
 const handlebars = require('express-handlebars');
 const gallery = require('./routes/gallery');
+const createUser = require('./routes/user');
 const methodOverride = require('method-override');
 const CONFIG =require('./config/config.json');
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 const mixin = require('mixin');
 const secret = require('./views/secret');
 
@@ -21,8 +24,14 @@ app.use(express.static('public'));
 //   secret: CONFIG.SESSION_SECRET
 // }));
 
+app.use(session({
+  store: new RedisStore(),
+  secret:'keyboard cat',
+  resave: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 const hbs = handlebars.create({
   extname: '.hbs',
@@ -105,7 +114,7 @@ function isAuthenticated(req, res, next){
     next();
   } else {
     console.log('nope');
-    res.redirect('/login');
+    res.redirect(303, '/login');
   }
 }
 
@@ -116,6 +125,7 @@ app.get('/', (req, res) =>{
 });
 
 app.use('/gallery', gallery);
+app.use('/create', createUser);
 
 
 app.listen(3000, function() {

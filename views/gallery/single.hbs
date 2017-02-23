@@ -4,16 +4,16 @@
   <img src="{{photo.link}}" class ="singlePhoto">
   <h1>Author: {{photo.author}}</h1>
   <h2>Description: {{photo.description}}</h2>
-
-</div>
 <form method="POST" action="/gallery/{{photo.id}}?_method=DELETE">
   <input type="submit" value ="delete">
-</form>
-
+</form> 
 <form method="GET" action="/gallery/{{photo.id}}/edit">
   <input type="submit" value="edit">
 </form>
 
+</div>
+<div class="all-single-photos">
+  
 {{#each photos}}
 <div class = "single-photoArea">
 <a href="/gallery/{{id}}"></a>
@@ -28,3 +28,4 @@
 
 </div>
 
+</div>

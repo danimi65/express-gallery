@@ -4,10 +4,14 @@
   
 {{#each photoList}}
 <div class = "photoArea">
-<a href="/gallery/{{id}}"></a>
+<a href="/gallery/{{id}}"> 
 <img src="{{link}}" class="photo">
-  <h2>Author: {{author}}</h2> 
-  <p>Description: {{description}}</p>
+</a>
+
+<div class ="textArea">
+  <h2>{{author}}</h2>
+  <p>{{link}}</p>
+</div>
 </div>
 {{/each}}
   

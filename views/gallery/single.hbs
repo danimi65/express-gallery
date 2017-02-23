@@ -1,14 +1,30 @@
-<div class = "photoList">
-  <img src="{{photoList.link}}" class ="photo">
-  <h1>Author: {{photoList.author}}</h1>
-  <h2>Description: {{photoList.description}}</h2>
+<div class= "single-main-container">
+  
+<div class = "single-detail">
+  <img src="{{photo.link}}" class ="singlePhoto">
+  <h1>Author: {{photo.author}}</h1>
+  <h2>Description: {{photo.description}}</h2>
 
 </div>
-<form method="POST" action="/gallery/{{photoList.id}}?_method=DELETE">
+<form method="POST" action="/gallery/{{photo.id}}?_method=DELETE">
   <input type="submit" value ="delete">
 </form>
 
-<form method="GET" action="/gallery/{{photoList.id}}/edit">
+<form method="GET" action="/gallery/{{photo.id}}/edit">
   <input type="submit" value="edit">
 </form>
+
+{{#each photos}}
+<div class = "single-photoArea">
+<a href="/gallery/{{id}}"></a>
+<img src="{{link}}" class="photo">
+
+<div class ="textArea">
+  <h2>{{author}}</h2>
+  <p>{{link}}</p>
+</div>
+</div>
+{{/each}}
+
+</div>
 

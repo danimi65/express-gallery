@@ -56,6 +56,7 @@ passport.use(new localStrategy (
     User.findOne({
       where: {
         username: username,
+        //take password out and put it in the .then using if statement
         password: password
       }
     })
@@ -89,25 +90,20 @@ passport.use(new localStrategy (
 // ));
 
 passport.serializeUser(function(user, done) {
+  console.log('serializing user');
   return done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {
+  console.log('deserializeUser');
   return done(null, user);
 });
+
 
 app.get('/login', (req, res) => {
   res.render('./login');
 });
 
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/secret',
-  failureRedirect: '/login'
-}));
-
-app.get('/secret', isAuthenticated, (req, res) => {
-  res.send('this is my secret page');
-});
 
 function isAuthenticated(req, res, next){
   if(req.isAuthenticated()){
@@ -117,6 +113,15 @@ function isAuthenticated(req, res, next){
     res.redirect(303, '/login');
   }
 }
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/secret',
+  failureRedirect: '/login'
+}));
+
+
+app.get('/secret', isAuthenticated, (req, res) => {
+  res.send('this is my secret page');
+});
 
 app.use('/secret', isAuthenticated, secret);
 

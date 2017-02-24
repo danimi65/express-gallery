@@ -1,31 +1,33 @@
 <div class= "single-main-container">
   
-<div class = "single-detail">
-  <img src="{{photo.link}}" class ="singlePhoto">
-  <h1>Author: {{photo.author}}</h1>
-  <h2>Description: {{photo.description}}</h2>
-<form method="POST" action="/gallery/{{photo.id}}?_method=DELETE">
-  <input type="submit" value ="delete">
-</form> 
-<form method="GET" action="/gallery/{{photo.id}}/edit">
-  <input type="submit" value="edit">
-</form>
+  <div class="single-detail">
+      <img src="{{photo.link}}" class ="singlePhoto">
+      <div class="detail-text">
+        <h1>Author: {{photo.author}}</h1>
+        <h2>Description: {{photo.description}}</h2>
+        <form method="POST" action="/gallery/{{photo.id}}?_method=DELETE">
+          <input type="submit" value ="delete">
+        </form> 
+        <form method="GET" action="/gallery/{{photo.id}}/edit">
+          <input type="submit" value="edit">
+        </form>
+      </div>
+  </div>
 
-</div>
-<div class="all-single-photos">
-  
-{{#each photos}}
-<div class = "single-photoArea">
-<a href="/gallery/{{id}}"></a>
-<img src="{{link}}" class="photo">
+  <div class="all-single-photos">
+    
+    {{#each photos}}
+      <div class = "single-photoArea">
+       {{!--  <a href="/gallery/{{id}}"></a> --}}
+        <img src="{{link}}" class="photo">
 
-<div class ="textArea">
-  <h2>{{author}}</h2>
-  <p>{{link}}</p>
-</div>
-</div>
-{{/each}}
+        <div class ="textArea">
+          <h2>{{author}}</h2>
+          <p>{{link}}</p>
+        </div>
+      </div>
+    {{/each}}
 
-</div>
+  </div>
 
 </div>

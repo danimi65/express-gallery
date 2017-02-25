@@ -186,7 +186,8 @@ header .sideTitle {
     @media (min-width: 870px) {
       .single-main-container .sideBar {
         display: initial;
-        width: 40%; } }
+        width: 40%;
+        padding-top: 1rem; } }
   .single-main-container .single-detail {
     padding-left: 6rem; }
     @media (min-width: 870px) {

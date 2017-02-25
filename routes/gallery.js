@@ -4,6 +4,16 @@ const router = express.Router();
 const db = require('../models');
 const Photo= db.Photo;
 
+function isAuthenticated (req, res, next){
+  console.log('hello');
+  if(req.isAuthenticated()){ //method in sequelize library
+    next();
+  } else {
+    console.log('nope');
+    res.redirect(303, '/login');
+  }
+}
+
 
 router.get('/', (req, res) =>{
   Photo.findAll({order: 'id'})
@@ -55,7 +65,7 @@ router.get('/:id', (req, res) =>{
 // });
 
 
-router.post('/', function (req, res) {
+router.post('/', isAuthenticated, function (req, res) {
   console.log('wkefaoeigj');
   Photo.create({
     author: req.body.author,
@@ -85,7 +95,7 @@ router.get('/:id/edit', (req, res) =>{
 });
 
 
-router.put('/:id/edit', (req, res) => {
+router.put('/:id/edit', isAuthenticated, (req, res) => {
   console.log(req.body);
   let author = req.body.author;
   let link = req.body.link;
@@ -129,7 +139,7 @@ router.put('/:id/edit', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isAuthenticated, (req, res) => {
   Photo.destroy(
     {where: {
       id: req.params.id

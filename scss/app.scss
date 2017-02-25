@@ -32,7 +32,6 @@ box-sizing: border-box;
     }
 
  .photoArea:nth-child(n+2){
-  // flex: 0 1 auto;
   width: 100%;
   padding: 1rem 7rem 2rem 7rem;
   @include respond-to('large'){
@@ -80,7 +79,6 @@ header{
   font-weight: bold;
   text-align: center;
   height: relative;
-  // padding-bottom: 20px;
   @include respond-to('large'){
   border-top: dotted 1px  #c0c0c0;
 
@@ -109,8 +107,7 @@ header{
   width: calc(68% - 10px);
   flex-grow: 1;
    border-right: dotted 1px #c0c0c0;
-  // border-width: 5px;
-  // border-color: blue;
+ 
   }
 
 }
@@ -142,89 +139,104 @@ header{
 .single-main-container{
   display: flex;
   flex-flow: row wrap;
-  // width: 100%;
-  align-content: center;
+  width: 100%;
 
 
-.all-single-photos{
+.sideBar{
   display: none;
+
   @include respond-to('large'){
     display: initial;
-    // padding-right: 5rem;
-    width: 200px;
-    height: 300px;
-    margin: auto;
-    // width: 30%;
-    // flex: 0 0 50%;
-    // flex-flow: row wrap;
-    // display: inline-block;
-    // padding-left: 2rem;
+    width: 40%;
 
   }
 }
 
 .single-detail{
-  // margin: auto;
   padding-left: 6rem;
-  // width: 100%;
 
 
   @include respond-to('large'){
-    padding-left: 1rem;
-    // flex: 1 0 60%;
-    // margin: auto;
+    padding-left: 0rem;
     height: 100%;
-    // width: 100%;
-    // display: inline-block;
+    width: 55%;
     box-sizing: border-box;
-    // padding-left: 10rem;
-    // padding-top: 0rem;
-    // width: 49%;
     border-style: solid;
     border-width: 5px;
     border-color: green;
     
-    &.singlePhoto{
+
+  }
+}
+  .singlePhoto{
+    width: 100%;
+
+    @include respond-to('large'){
       width: 100%;
-      height: calc(100% - 2rem);
+      height: 30rem;
+      
+    }
     }
 
-  }
-}
-
 .detail-text{
+    color: #c0c0c0;
+    font-family: "arial", sans-serif;
+    font-size: 14px;
   @include respond-to('large'){
     width: 100%;
-    // margin: auto;
 
   }
 }
 
 
 
-.single-photoArea{
-//   border-style: solid;
-// border-width: 5px;
-// border-color: blue;
+.sidebarPhoto-area{
   display: none;
 
   @include respond-to('large'){
       display: initial;
-      // width: 10rem;
-      width: 20rem;
-      height: 30rem;
-       img{
-        height: 15rem;
-        width: 20rem;
-
-       }
-
-    // padding: 1rem 7rem 2rem 7rem;
-    // display: inline-block;
-   border-style: solid;
-  border-width: 5px;
-  border-color: red;
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      height: 15rem;
+    padding: 2rem;
+    border-style: solid;
+    border-width: 5px;
+    border-color: pink;
   }
 }
 }
+
+.sidePhoto{
+    display: none;
+  @include respond-to('large'){
+      display: initial;
+
+      width: 100%;
+      // height: 100%;
+      height: calc(100% - 2rem);
+      // width: 100%;
+        }
+
+       }
+
+  .textArea{
+    display: none;
+    @include respond-to('large'){
+      display: initial;
+      width: 100%;
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
 

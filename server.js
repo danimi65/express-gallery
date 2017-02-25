@@ -105,25 +105,26 @@ app.get('/login', (req, res) => {
 });
 
 
-function isAuthenticated(req, res, next){
-  if(req.isAuthenticated()){
-    next();
-  } else {
-    console.log('nope');
-    res.redirect(303, '/login');
-  }
-}
+// var isAuthenticated = function (req, res, next){
+//   console.log('hello');
+//   if(req.isAuthenticated()){ //method in sequelize library
+//     next();
+//   } else {
+//     console.log('nope');
+//     res.redirect(303, '/login');
+//   }
+// };
+
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/secret',
+  successRedirect: '/gallery',
   failureRedirect: '/login'
 }));
 
+// app.get('/secret', isAuthenticated, (req, res) => {
+//   res.send('this is my secret page');
+// });
 
-app.get('/secret', isAuthenticated, (req, res) => {
-  res.send('this is my secret page');
-});
-
-app.use('/secret', isAuthenticated, secret);
+// app.use('/secret', isAuthenticated, secret);
 
 app.get('/', (req, res) =>{
   res.render('index');

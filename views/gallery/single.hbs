@@ -3,28 +3,29 @@
   <div class="single-detail">
       <img src="{{photo.link}}" class ="singlePhoto">
       <div class="detail-text">
-        <h1>Author: {{photo.author}}</h1>
-        <h2>Description: {{photo.description}}</h2>
+        <h1>Author: {{photo.author}}</h1><br>
+
+        <h2>Description: {{photo.description}}</h2><br>
         <form method="POST" action="/gallery/{{photo.id}}?_method=DELETE">
           <input type="submit" value ="delete">
-        </form> 
+        </form> <br>
         <form method="GET" action="/gallery/{{photo.id}}/edit">
           <input type="submit" value="edit">
         </form>
       </div>
   </div>
 
-  <div class="all-single-photos">
+  <div class="sideBar">
     
     {{#each photos}}
-      <div class = "single-photoArea">
-       {{!--  <a href="/gallery/{{id}}"></a> --}}
-        <img src="{{link}}" class="photo">
+      <div class = "sidebarPhoto-area">
+        <img src="{{link}}" class="sidePhoto">
 
         <div class ="textArea">
           <h2>{{author}}</h2>
           <p>{{link}}</p>
         </div>
+
       </div>
     {{/each}}
 

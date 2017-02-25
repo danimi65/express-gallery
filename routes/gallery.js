@@ -55,15 +55,6 @@ router.get('/:id', (req, res) =>{
 }); 
 
 
-// router.get('/secret', (req, res) => {
-
-// });
-
-
-// router.post('/login', (req,res) =>{
-
-// });
-
 
 router.post('/', isAuthenticated, function (req, res) {
   console.log('wkefaoeigj');
@@ -117,18 +108,8 @@ router.put('/:id/edit', isAuthenticated, (req, res) => {
                     });
     return update;
   })
-  // Photo.update(
-  // { author: author,
-  //   link: link,
-  //   description: description
 
-  // },
-  //  { where: {
-  //   id: req.params.id
-  //   }
-  // })
   .then( (photo) => {
-    // res.redirect('/gallery');
     return Photo.findById(photoId);
 
   })

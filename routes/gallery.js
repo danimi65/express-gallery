@@ -40,7 +40,7 @@ router.get('/:id', (req, res) =>{
   let photoId = req.params.id;
   Photo.findById(photoId)
   .then((photo) =>{
-  Photo.findAll({order: "id"})
+  Photo.findAll({order: "id", limit: 3})
   .then((photos) => {
     
     res.render('./gallery/single', {

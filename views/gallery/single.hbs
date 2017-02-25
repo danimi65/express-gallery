@@ -1,11 +1,11 @@
 <div class= "single-main-container">
   
   <div class="single-detail">
+        <h1>{{photo.author}} - {{photo.link}}</h1><br>
       <img src="{{photo.link}}" class ="singlePhoto">
       <div class="detail-text">
-        <h1>Author: {{photo.author}}</h1><br>
 
-        <h2>Description: {{photo.description}}</h2><br>
+        <h2>{{photo.description}}</h2><br>
         <form method="POST" action="/gallery/{{photo.id}}?_method=DELETE">
           <input type="submit" value ="delete">
         </form> <br>

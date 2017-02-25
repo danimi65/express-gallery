@@ -16,6 +16,9 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const mixin = require('mixin');
 const secret = require('./views/secret');
+const bcrypt = require('bcrypt');
+
+const saltRounds = 10;
 
 app.use(methodOverride('_method'));
 app.use(bp.urlencoded({extended: true}));
@@ -50,24 +53,43 @@ app.set('view engine', 'hbs');
 //   // check if the user is authenticated or not
 //   return ( username === USERNAME && password === PASSWORD );
 // };
+function checkPassword(plainTextPassword, passwordInDB){
+  return bcrypt.compare(plainTextPassword, passwordInDB, function(err, res){
+    return res;
+  });
+
+}
 
 passport.use(new localStrategy (
   function(username, password, done) {
     User.findOne({
       where: {
-        username: username,
-        //take password out and put it in the .then using if statement
-        password: password
+        username: username
       }
     })
     .then((user) =>{
-      return done(null, user);
+      if(user === null){
+        console.log('user failed');
+        return done(null, false, {message: 'bad username'});
+      }else{
+        bcrypt.compare(password, user.password).then(res => {
+          if(res){
+            return done(null, user);
+          }else{
+            return done(null, false, {message: 'bad passowrd'});
+
+          }
+        });
+      }
     })
     .catch((err) =>{
-      return done(err);
+      return done('error', err);
+      });
+    }
 
-    });
-  }));
+  ));
+
+
 
 // passport.use(new localStrategy(
 //   function (username, password, done) {
@@ -119,6 +141,25 @@ app.post('/login', passport.authenticate('local', {
   successRedirect: '/gallery',
   failureRedirect: '/login'
 }));
+
+app.post('/create', (req, res) =>{
+  console.log('req.body.username', req.body.username);
+  console.log('req.body.password', req.body.password);
+  bcrypt.genSalt(saltRounds, function(err, salt){
+    bcrypt.hash(req.body.password, salt, function(err, hash){
+      console.log('hash', hash);
+      User.create({
+        username: req.body.username,
+        password: hash
+      })
+      .then(_=>{
+        res.redirect('/login');
+      });
+      // res.end();
+    });
+
+  });
+});
 
 // app.get('/secret', isAuthenticated, (req, res) => {
 //   res.send('this is my secret page');

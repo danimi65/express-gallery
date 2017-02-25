@@ -15,7 +15,7 @@ body {
 h1{
   color: #808080;
   font-family: "arial", sans-serif;
-  font-size: 14px;
+  
 }
 
 .loginPage{
@@ -24,9 +24,14 @@ h1{
 
 .createPage{
   padding-left: 3rem;
+  padding-top: 2rem;
 }
 
 
+.newPhotoPage{
+  padding-top: 2rem;
+  padding-left: 3rem;
+}
 
 
 #mainContainer{
@@ -36,6 +41,7 @@ h1{
 .photoArea{
 width: 100%;
 box-sizing: border-box;
+
 
 }
     img{
@@ -131,6 +137,8 @@ header{
   color: #c0c0c0;
 
 }
+
+
 
 
 

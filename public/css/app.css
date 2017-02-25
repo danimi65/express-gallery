@@ -74,13 +74,17 @@ body {
 
 h1 {
   color: #808080;
-  font-family: "arial", sans-serif;
-  font-size: 14px; }
+  font-family: "arial", sans-serif; }
 
 .loginPage {
   padding-left: 3rem; }
 
 .createPage {
+  padding-left: 3rem;
+  padding-top: 2rem; }
+
+.newPhotoPage {
+  padding-top: 2rem;
   padding-left: 3rem; }
 
 #mainContainer {

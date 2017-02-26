@@ -76,6 +76,16 @@ h1 {
   color: #808080;
   font-family: "arial", sans-serif; }
 
+.editPage {
+  padding-left: 2rem;
+  color: #808080;
+  font-family: "arial", sans-serif; }
+
+.editPhoto {
+  padding-top: 2rem;
+  height: 30rem;
+  width: 45rem; }
+
 .loginPage {
   padding-left: 3rem; }
 
@@ -157,7 +167,7 @@ header .mainTitle {
       border-right: dotted 1px #c0c0c0; } }
 
 header .buttonsArea {
-  padding-left: 5rem;
+  padding-left: 2rem;
   padding-top: 2rem;
   color: #c0c0c0; }
 

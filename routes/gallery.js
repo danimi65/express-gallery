@@ -43,10 +43,10 @@ router.get('/:id', (req, res) =>{
       photo: photo,
       photos: photos
     });
+  });
   })
   .catch(err => {
     console.log('get individual err', err);
-  });
   });
 }); 
 

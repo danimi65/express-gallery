@@ -27,7 +27,7 @@ app.use(express.static('public'));
 
 app.use(session({
   store: new RedisStore(),
-  secret:'keyboard cat',
+  secret: CONFIG.SECRET_SESSION,
   resave: false
 }));
 app.use(passport.initialize());

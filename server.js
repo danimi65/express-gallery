@@ -173,6 +173,10 @@ app.use('/gallery', gallery);
 app.use('/create', createUser);
 
 
+app.use(function(req, res){
+  res.send('404: Page not found', 404);
+});
+
 app.listen(3000, function() {
   console.log('listening on port 3000');
   db.sequelize.sync();

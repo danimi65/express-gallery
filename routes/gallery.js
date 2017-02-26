@@ -86,7 +86,6 @@ router.put('/:id/edit', isAuthenticated, (req, res) => {
   let description = req.body.description;
   Photo.update(
   { author: author,
-    link: link,
     description: description
 
   },

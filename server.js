@@ -23,9 +23,7 @@ const saltRounds = 10;
 app.use(methodOverride('_method'));
 app.use(bp.urlencoded({extended: true}));
 app.use(express.static('public'));
-// app.use(session({
-//   secret: CONFIG.SESSION_SECRET
-// }));
+
 
 app.use(session({
   store: new RedisStore(),
@@ -155,17 +153,16 @@ app.post('/create', (req, res) =>{
       .then(_=>{
         res.redirect('/login');
       });
-      // res.end();
+     
     });
 
   });
 });
 
-// app.get('/secret', isAuthenticated, (req, res) => {
-//   res.send('this is my secret page');
-// });
-
-// app.use('/secret', isAuthenticated, secret);
+app.get('/logout', (req, res) =>{
+  req.logout();
+  res.redirect('/login');
+});
 
 app.get('/', (req, res) =>{
   res.render('index');

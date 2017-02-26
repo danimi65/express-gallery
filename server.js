@@ -51,6 +51,7 @@ app.set('view engine', 'hbs');
 //   // check if the user is authenticated or not
 //   return ( username === USERNAME && password === PASSWORD );
 // };
+
 function checkPassword(plainTextPassword, passwordInDB){
   return bcrypt.compare(plainTextPassword, passwordInDB, function(err, res){
     return res;

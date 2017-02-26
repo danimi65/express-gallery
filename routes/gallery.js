@@ -31,10 +31,6 @@ router.get('/new', (req, res) =>{
   res.render('./gallery/new');
 });
 
-// router.get('/login', (req, res) =>{
-//   res.render('./login');
-
-// });
 
 router.get('/:id', (req, res) =>{
   let photoId = req.params.id;
@@ -120,7 +116,6 @@ router.get('/:id/edit', (req, res) =>{
 
 router.put('/:id/edit', isAuthenticated, (req, res) => {
   let author = req.body.author;
-  let link = req.body.link;
   let description = req.body.description;
   Photo.update(
   { author: author,
@@ -137,8 +132,6 @@ router.put('/:id/edit', isAuthenticated, (req, res) => {
     res.redirect('/gallery');
   });
 });
-
-
 
 router.delete('/:id', isAuthenticated, (req, res) => {
   Photo.destroy(

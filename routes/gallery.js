@@ -57,7 +57,6 @@ router.get('/:id', (req, res) =>{
 
 
 router.post('/', isAuthenticated, function (req, res) {
-  console.log('wkefaoeigj');
   Photo.create({
     author: req.body.author,
     link: req.body.link,
@@ -86,38 +85,59 @@ router.get('/:id/edit', (req, res) =>{
 });
 
 
+// router.put('/:id/edit', isAuthenticated, (req, res) => {
+//   console.log(req.body);
+//   let author = req.body.author;
+//   let link = req.body.link;
+//   let description = req.body.description;
+//   console.log('wekjaowrt', author, link, description);
+//   let photoId = req.params.id;
+//   Photo.findById(photoId)
+//   .then((photos) => {
+//     console.log('before update', photos);
+//     var update = Photo.update(
+//                     { author: author,
+//                       link: link,
+//                       description: description
+
+//                     },
+//                      { where: {
+//                       id: req.params.id
+//                       }
+//                     });
+//     return update;
+//   })
+
+//   .then( (photo) => {
+//     return Photo.findById(photoId);
+
+//   })
+//   .then((photos) =>{
+//     console.log('after update', photos);
+//     res.redirect('/gallery');
+//   });
+// });
+
 router.put('/:id/edit', isAuthenticated, (req, res) => {
-  console.log(req.body);
   let author = req.body.author;
   let link = req.body.link;
   let description = req.body.description;
-  console.log('wekjaowrt', author, link, description);
-  let photoId = req.params.id;
-  Photo.findById(photoId)
-  .then((photos) => {
-    console.log('before update', photos);
-    var update = Photo.update(
-                    { author: author,
-                      link: link,
-                      description: description
+  Photo.update(
+  { author: author,
+    link: link,
+    description: description
 
-                    },
-                     { where: {
-                      id: req.params.id
-                      }
-                    });
-    return update;
+  },
+  {
+    where:{
+      id: req.params.id
+    }
   })
-
-  .then( (photo) => {
-    return Photo.findById(photoId);
-
-  })
-  .then((photos) =>{
-    console.log('after update', photos);
+  .then((photo) =>{
     res.redirect('/gallery');
   });
 });
+
 
 
 router.delete('/:id', isAuthenticated, (req, res) => {

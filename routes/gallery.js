@@ -81,39 +81,6 @@ router.get('/:id/edit', (req, res) =>{
 });
 
 
-// router.put('/:id/edit', isAuthenticated, (req, res) => {
-//   console.log(req.body);
-//   let author = req.body.author;
-//   let link = req.body.link;
-//   let description = req.body.description;
-//   console.log('wekjaowrt', author, link, description);
-//   let photoId = req.params.id;
-//   Photo.findById(photoId)
-//   .then((photos) => {
-//     console.log('before update', photos);
-//     var update = Photo.update(
-//                     { author: author,
-//                       link: link,
-//                       description: description
-
-//                     },
-//                      { where: {
-//                       id: req.params.id
-//                       }
-//                     });
-//     return update;
-//   })
-
-//   .then( (photo) => {
-//     return Photo.findById(photoId);
-
-//   })
-//   .then((photos) =>{
-//     console.log('after update', photos);
-//     res.redirect('/gallery');
-//   });
-// });
-
 router.put('/:id/edit', isAuthenticated, (req, res) => {
   let author = req.body.author;
   let description = req.body.description;

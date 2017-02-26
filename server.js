@@ -42,15 +42,6 @@ const hbs = handlebars.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
-// const authenticate = (username, password) => {
-//   // get user data from the DB
-//   // const USER = CONFIG.USER;
-//   const { USER } = CONFIG;
-//   const { PASSWORD, USERNAME } = USER;
-
-//   // check if the user is authenticated or not
-//   return ( username === USERNAME && password === PASSWORD );
-// };
 
 function checkPassword(plainTextPassword, passwordInDB){
   return bcrypt.compare(plainTextPassword, passwordInDB, function(err, res){
@@ -89,27 +80,6 @@ passport.use(new localStrategy (
   ));
 
 
-
-// passport.use(new localStrategy(
-//   function (username, password, done) {
-//     console.log('username, password: ', username, password);
-//     // check if the user is authenticated or not
-//     if( authenticate(username, password) ) {
-
-//       // User data from the DB
-//       const user = {
-//         name: 'Joe',
-//         role: 'admin',
-//         favColor: 'green',
-//         isAdmin: true,
-//       };
-
-//       return done(null, user); // no error, and data = user
-//     }
-//     return done(null, false); // error and authenticted = false
-//   }
-// ));
-
 passport.serializeUser(function(user, done) {
   console.log('serializing user');
   return done(null, user);
@@ -125,16 +95,6 @@ app.get('/login', (req, res) => {
   res.render('./login');
 });
 
-
-// var isAuthenticated = function (req, res, next){
-//   console.log('hello');
-//   if(req.isAuthenticated()){ //method in sequelize library
-//     next();
-//   } else {
-//     console.log('nope');
-//     res.redirect(303, '/login');
-//   }
-// };
 
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/gallery',

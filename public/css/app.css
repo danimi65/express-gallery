@@ -113,12 +113,16 @@ h1 {
       #mainContainer .photoArea:nth-child(n+2) {
         width: 33%;
         height: 20rem;
+        text-overflow: clip;
+        overflow: hidden;
+        white-space: nowrap;
         padding: 10px;
         display: inline-block; }
         #mainContainer .photoArea:nth-child(n+2) img {
           height: 15rem; } }
     #mainContainer .photoArea:nth-child(n+2) .textArea {
-      display: initial; }
+      display: initial;
+      width: 100%; }
   #mainContainer .photoArea:first-child {
     margin: auto;
     width: 100%;
@@ -156,7 +160,7 @@ header .title {
         font-family: "arial", sans-serif; } }
 
 header .mainTitle {
-  padding-left: 14rem;
+  padding-left: 12rem;
   padding-bottom: 2rem; }
   @media (min-width: 870px) {
     header .mainTitle {

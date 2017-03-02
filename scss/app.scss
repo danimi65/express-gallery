@@ -7,6 +7,7 @@ a {
   text-decoration: none;
 }
 
+
 body {
   background-color: white;
   width: 100%;
@@ -69,6 +70,10 @@ box-sizing: border-box;
   @include respond-to('large'){
   width: 33%;
   height: 20rem;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+ 
 
   img{
   height: 15rem;
@@ -79,6 +84,10 @@ box-sizing: border-box;
   }
   .textArea{
     display: initial;
+    width: 100%;
+  
+
+
   }
 }
   .photoArea:first-child{
@@ -133,7 +142,7 @@ header{
 
 }
 .mainTitle{
-  padding-left: 14rem;
+  padding-left: 12rem;
   padding-bottom: 2rem;
 
   @include respond-to('large'){

@@ -46,11 +46,18 @@ router.get('/:id', (req, res) =>{
   .then((photo) =>{
   Photo.findAll({order: "id", limit: 3})
   .then((photos) => {
-    
-    res.render('./gallery/single', {
-      photo: photo,
-      photos: photos
-    });
+    if(req.user){
+      res.render('./gallery/single', {
+        photo: photo,
+        photos: photos,
+        user: req.user.username
+      });
+    }else{
+      res.render('./gallery/single', {
+        photo: photo,
+        photos: photos
+      });
+    }
   });
   })
   .catch(err => {
@@ -80,9 +87,19 @@ router.get('/:id/edit', (req, res) =>{
   let photoId = req.params.id;
   Photo.findById(photoId)
   .then((photos) => {
-    res.render('./gallery/edit', {photoList: photos,
-      id: photoId});
-})
+    if(req.user){
+      res.render('./gallery/edit', {
+        photoList: photos,
+        id: photoId,
+        user: req.user.username
+      });
+    }else{
+      res.render('./gallery/edit', {
+        photoList: photos,
+        id: photoId
+      });
+    }
+  })
   .catch(err => {
     console.log('get edit error', err);
   });
@@ -109,7 +126,8 @@ router.put('/:id/edit', isAuthenticated, (req, res) => {
 
 router.delete('/:id', isAuthenticated, (req, res) => {
   Photo.destroy(
-    {where: {
+    {
+      where: {
       id: req.params.id
     }
   })

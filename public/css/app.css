@@ -76,6 +76,15 @@ h1 {
   color: #808080;
   font-family: "arial", sans-serif; }
 
+input {
+  border-style: solid #808080;
+  color: #808080; }
+
+input:hover {
+  background-color: #9A9797;
+  color: white;
+  border-radius: 6px; }
+
 .editPage {
   padding-left: 2rem;
   color: #808080;
@@ -113,9 +122,6 @@ h1 {
       #mainContainer .photoArea:nth-child(n+2) {
         width: 33%;
         height: 20rem;
-        text-overflow: clip;
-        overflow: hidden;
-        white-space: nowrap;
         padding: 10px;
         display: inline-block; }
         #mainContainer .photoArea:nth-child(n+2) img {
@@ -123,6 +129,10 @@ h1 {
     #mainContainer .photoArea:nth-child(n+2) .textArea {
       display: initial;
       width: 100%; }
+      #mainContainer .photoArea:nth-child(n+2) .textArea p {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; }
   #mainContainer .photoArea:first-child {
     margin: auto;
     width: 100%;
@@ -163,6 +173,26 @@ header .title {
         padding-bottom: 20px;
         font-family: "arial", sans-serif; } }
 
+header .topArea {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  font-family: "arial", sans-serif;
+  color: #808080; }
+
+header .menuArea {
+  width: 55%;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  color: #c0c0c0; }
+
+header .welcomeDiv {
+  width: 35%;
+  padding-top: 2rem; }
+  header .welcomeDiv form {
+    padding-left: 15rem;
+    width: 100%; }
+
 header .mainTitle {
   padding-left: 12rem;
   padding-bottom: 2rem; }
@@ -173,11 +203,6 @@ header .mainTitle {
       width: calc(68% - 10px);
       flex-grow: 1;
       border-right: dotted 1px #c0c0c0; } }
-
-header .buttonsArea {
-  padding-left: 2rem;
-  padding-top: 2rem;
-  color: #c0c0c0; }
 
 header .sideTitle {
   display: none; }

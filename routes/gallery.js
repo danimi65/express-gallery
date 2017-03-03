@@ -18,9 +18,17 @@ function isAuthenticated (req, res, next){
 router.get('/', (req, res) =>{
   Photo.findAll({order: 'id'})
   .then((photos) => {
+    if(req.user){
+
     res.render('index', {
-      photoList: photos
+      photoList: photos,
+      user: req.user.username
     });
+    }else{
+      res.render('index',{
+        photoList:photos
+      });
+    }
   })
   .catch(err =>{
     console.log('get error');
@@ -109,6 +117,9 @@ router.delete('/:id', isAuthenticated, (req, res) => {
     res.redirect('/gallery');
   });
 });
+
+
+
 
 
 

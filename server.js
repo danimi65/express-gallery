@@ -18,6 +18,7 @@ const mixin = require('mixin');
 const secret = require('./views/secret');
 const bcrypt = require('bcrypt');
 
+
 const saltRounds = 10;
 
 app.use(methodOverride('_method'));
@@ -131,6 +132,13 @@ app.get('/', (req, res) =>{
 
 app.use('/gallery', gallery);
 app.use('/create', createUser);
+
+app.use(require('connect-flash')());
+app.use(function (req, res, next){
+  res.locals.messages = require('express-message')(req, res);
+  next();
+});
+
 
 
 app.use(function(req, res){

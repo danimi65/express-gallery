@@ -19,6 +19,18 @@ h1{
   
 }
 
+input{
+  border-style: solid #808080;
+  color: #808080;
+
+}
+
+input:hover{
+  background-color:  #9A9797;
+  color: white;
+  border-radius: 6px;
+}
+
 .editPage{
   padding-left: 2rem;
   color: #808080;
@@ -70,20 +82,26 @@ box-sizing: border-box;
   @include respond-to('large'){
   width: 33%;
   height: 20rem;
-  text-overflow: clip;
-  overflow: hidden;
-  white-space: nowrap;
+  padding: 10px;
+  display: inline-block;
  
 
   img{
   height: 15rem;
     
   }
-  padding: 10px;
-  display: inline-block;
+
   }
+
+
   .textArea{
     display: initial;
+    p{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+      
+    }
     width: 100%;
   
 
@@ -146,6 +164,32 @@ header{
   }
 
 }
+
+.topArea{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  font-family: "arial", sans-serif;
+   color: #808080;
+}
+
+.menuArea{
+  width: 55%;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  color: #c0c0c0;
+
+}
+
+.welcomeDiv{
+  width: 35%;
+  padding-top: 2rem;
+  form{
+    padding-left: 15rem;
+    width: 100%;
+  }
+}
+
 .mainTitle{
   padding-left: 12rem;
   padding-bottom: 2rem;
@@ -162,12 +206,6 @@ header{
 
 }
 
-.buttonsArea{
-  padding-left: 2rem;
-  padding-top: 2rem;
-  color: #c0c0c0;
-
-}
 
 
 
@@ -302,6 +340,10 @@ header{
 
 
   }
+
+
+
+
 
 
 
